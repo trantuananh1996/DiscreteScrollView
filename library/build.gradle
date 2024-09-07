@@ -1,13 +1,15 @@
 apply plugin: 'com.android.library'
-apply from: rootProject.file('release-bintray.gradle')
 
 android {
-    compileSdkVersion rootProject.compileSdkVersion
-    buildToolsVersion rootProject.buildToolsVersion
+    compileSdk 34
+    namespace "com.yarolegovich.discretescrollview"
+    buildFeatures {
+        buildConfig true
+    }
 
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion rootProject.targetSdkVersion
+        minSdkVersion 21
+        targetSdkVersion 34
         versionCode 1
         versionName "1.0"
 
@@ -16,18 +18,5 @@ android {
 }
 
 dependencies {
-    implementation deps.recycler
-    implementation deps.annotations
-
-    testImplementation testDeps.robolectric
-    testImplementation testDeps.jUnit
-    testImplementation testDeps.mockito
-    testImplementation testDeps.hamcrest
-
-    debugImplementation deps.androidxCompat
-    androidTestImplementation testDeps.espresso
-    androidTestImplementation testDeps.androidJUnit
-    androidTestImplementation testDeps.testRunner
-    androidTestImplementation testDeps.testRules
-    androidTestImplementation testDeps.hamcrest
+    implementation 'androidx.recyclerview:recyclerview:1.3.1'
 }
